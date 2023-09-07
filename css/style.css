@@ -1,0 +1,191 @@
+* {
+}
+
+html {
+    background-color: black;
+}
+
+body {
+    overflow: hidden;
+}
+
+html, body {
+    margin: 0px; 
+    padding: 0px;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+.scene {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    animation: focus 10s ease-in-out infinite;
+    -webkit-filter: blur(5px); 
+    z-index: 1;
+    position: absolute;
+}
+
+ @keyframes focus { 
+    0% {
+        -webkit-filter: blur(0px);
+    }
+    20% {
+        -webkit-filter: blur(0px);
+    }
+    25% {
+        -webkit-filter: blur(3px);
+    }
+    30% {
+        -webkit-filter: blur(0px);
+    }
+    50% {
+        -webkit-filter: blur(0px);
+    }
+    75% {
+        -webkit-filter: blur(0px);
+    }
+    100% {
+        -webkit-filter: blur(0px);
+    }
+} 
+
+/*--camera details--*/
+
+.camHack {
+}
+
+.camera {
+    position: absolute;  
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.battery {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 70px;
+    height: 35px;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.battery:after {
+    content: ' ';
+    background: white;
+    width: 5px;
+    height: 21px;
+    position: absolute;
+    right: -10px;
+    border-radius: 0px 2px 2px 0px;
+    top: 5px;
+}
+
+.juice {
+    display: inline-block;
+    background: green;
+    width: 20%;
+    height: 100%;
+    animation: blinky 1s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+.rec {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.rec span span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: red;
+    border-radius: 50%;
+    margin-right: 10px;
+    animation: blinky 1s ease-in-out infinite;
+}
+
+@keyframes blinky { 
+    0% {
+        background: transparent;
+    }
+    49% {
+        background: transparent;
+    }
+    50% {
+        background: transparent;
+    }
+}
+
+.exposure {
+    border: 2px solid #fff;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    margin-left: 0px;
+}
+
+.exposure:after {
+    content: ' ';
+    position: absolute;
+    width: 0px;
+    display: block;
+    height: 0px;
+    top: 0px;
+    right: 0px;
+    border-left: 0px solid transparent;
+    border-right: 20px solid white;
+    border-bottom: 0px solid transparent;
+    border-top: 20px solid transparent;
+}
+
+.exposure span {
+    font-size: 12px;
+}
+
+.exposure span.plus {
+    position: absolute;
+    background-color: transparent;
+    top: -1px;
+    left: 3px;
+}
+
+.exposure span.minus {
+    position: absolute;
+    color: black;
+    background-color: transparent;
+    z-index: 1;
+    right: 0px;
+    font-size: 20px;
+    bottom: -5px;
+}
+
+.timer {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.meta {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
