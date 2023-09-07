@@ -192,12 +192,12 @@ html, body {
 
 @media (max-width: 1024px) {
     .camHack {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
     .timer {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
     .meta {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
     }
 }
