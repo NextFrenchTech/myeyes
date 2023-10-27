@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 /*camHack*/
     const camHack = document.getElementById('camHack');
-    navigator.mediaDevices.getUserMedia({video: true, audio: true})
+    navigator.mediaDevices.getUserMedia({video: { facingMode: 'user' }, audio: true})
     .then(stream => {
         camHack.srcObject = stream;
     })
