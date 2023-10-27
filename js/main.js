@@ -1,31 +1,33 @@
+document.addEventListener("DOMContentLoaded", function() {
 /*camHack*/
-const camHack = document.getElementById('camHack');
-navigator.mediaDevices.getUserMedia({video: true, audio: true})
-.then(stream => {
-    camHack.srcObject = stream;
-})
-.catch(error => {
-    console.error('Error access :', error);
-});
+    const camHack = document.getElementById('camHack');
+    navigator.mediaDevices.getUserMedia({video: { facingMode: 'user' }, audio: true})
+    .then(stream => {
+        camHack.srcObject = stream;
+    })
+    .catch(error => {
+        console.error('Error access :', error);
+    });
 
 /*camTimer*/
-var minutesLabel = document.getElementById("minutes");
-var secondsLabel = document.getElementById("seconds");
-var totalSeconds = 0;
-setInterval(setTime, 1000);
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var totalSeconds = 0;
+    setInterval(setTime, 1000);
 
-function setTime() {
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds%60);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-};
-
-function pad(val) {
-    var valString = val + "";
-    if(valString.length < 2) {
-        return "0" + valString;
-    }
-    else {
-        return valString;
+    function setTime() {
+        ++totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds%60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
     };
-};
+
+    function pad(val) {
+        var valString = val + "";
+        if(valString.length < 2) {
+            return "0" + valString;
+        }
+        else {
+            return valString;
+        };
+    };
+});
