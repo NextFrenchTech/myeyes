@@ -1,8 +1,11 @@
 /*camHack*/
 const camHack = document.getElementById('camHack');
-navigator.mediaDevices.getUserMedia({video: true})
+navigator.mediaDevices.getUserMedia({video: true, audio: true})
 .then(stream => {
-    camHack.srcObject = stream
+    camHack.srcObject = stream;
+})
+.catch(error => {
+    console.error('Error access :', error);
 });
 
 /*camTimer*/
@@ -15,7 +18,7 @@ function setTime() {
     ++totalSeconds;
     secondsLabel.innerHTML = pad(totalSeconds%60);
     minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
-}
+};
 
 function pad(val) {
     var valString = val + "";
@@ -24,5 +27,5 @@ function pad(val) {
     }
     else {
         return valString;
-    }
-}
+    };
+};
